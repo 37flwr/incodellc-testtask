@@ -13,7 +13,7 @@ const TickerTableHeader = () => {
   return (
     <div className="ticker-table_header table__grid">
       {tickerDetails.map((t) => (
-        <span>{t}</span>
+        <span key={t}>{t}</span>
       ))}
     </div>
   );

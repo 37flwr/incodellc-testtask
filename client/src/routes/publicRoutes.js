@@ -1,6 +1,6 @@
 import { useRoutes } from "react-router";
-import HomePage from "../components/pages/HomePage";
-import PageNotFound from "../components/pages/PageNotFound";
+import HomePage from "../pages/HomePage";
+import PageNotFound from "../pages/PageNotFound";
 
 const publicRoutes = [
   {
