@@ -1,5 +1,11 @@
-const startPolling = (socket) => {
-    socket.emit('start')
-}
+import socket from "./socket";
 
-export {startPolling}
+const startPolling = () => {
+  socket.emit("start");
+};
+
+const endPolling = () => {
+  socket.disconnect();
+};
+
+export { startPolling, endPolling };

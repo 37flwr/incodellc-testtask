@@ -1,4 +1,26 @@
-.ticker-item {
+.app_wrapper {
+  width: 100vw;
   display: flex;
-  gap: 20px;
+  justify-content: center;
+
+  .ticker-table {
+    width: 80vw;
+
+    .ticker-table_header {
+      border-bottom: 2px solid black;
+    }
+    .table__grid {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .ticker-item {
+      display: flex;
+      gap: 20px;
+    }
+  }
 }
