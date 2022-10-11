@@ -1,23 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+// import logo from './logo.svg';
+import socket from "./utils/socket";
+import { useEffect, useState } from "react";
+import { startPolling } from "./utils/socketActions";
+import "./App.scss";
 
 function App() {
+  const [tickers, setTickers] = useState([]);
+
+  useEffect(() => {
+    startPolling(socket);
+
+    socket.on("ticker", (data) => {
+      console.log(data);
+      setTickers([...data]);
+    });
+
+    return () => {
+      socket.disconnect();
+    };
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div>
+        {tickers?.map(({ exchange, ticker, price, change_percent }) => (
+          <div key={ticker} className="ticker-item">
+            <p>{exchange}</p>
+            <p>{ticker}</p>
+            <p>{price}</p>
+            <div>{change_percent}</div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
