@@ -1,17 +1,21 @@
 // import logo from './logo.svg';
 import "./App.scss";
 import AppRoutes from "./routes/publicRoutes";
+import ErrorFallback from "./fallbacks/ErrorFallback";
+import { ErrorBoundary } from "react-error-boundary";
 import { BrowserRouter } from "react-router-dom";
+import { Suspense } from "react";
+import Loading from "./fallbacks/Loading";
 
 function App() {
   return (
-    <div className="App">
-      <div className="app_wrapper">
-        <BrowserRouter>
+    <ErrorBoundary FallbackComponent={ErrorFallback}>
+      <BrowserRouter>
+        <Suspense fallback={<Loading />}>
           <AppRoutes />
-        </BrowserRouter>
-      </div>
-    </div>
+        </Suspense>
+      </BrowserRouter>
+    </ErrorBoundary>
   );
 }
 
