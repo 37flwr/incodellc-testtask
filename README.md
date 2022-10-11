@@ -2,11 +2,11 @@
 
 ## ToDo
 
-[.] - Add any additional visual effects to highlight positive or negative changes in the prices
-[.] - Add the possibility to switch on/off tickers by user
-[x] - Add the possibility to specify interval time by user
-[x] - Add the possibility to add/remove ticker from watching group
-[x] - Add any additional functionality you consider useful
+- [ ] Add any additional visual effects to highlight positive or negative changes in the prices
+- [ ] Add the possibility to switch on/off tickers by user
+- [ ] Add the possibility to specify interval time by user
+- [ ] Add the possibility to add/remove ticker from watching group
+- [ ] Add any additional functionality you consider useful
 
 ## Requirements
 
