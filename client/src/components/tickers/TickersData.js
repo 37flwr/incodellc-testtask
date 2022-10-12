@@ -5,7 +5,7 @@ import { endPolling, startPolling } from "../../utils/socketActions";
 import TickersElement from "./TickersElement";
 
 const TickersData = () => {
-  const [tickersData, setTickersData] = useState([]);
+  const [tickersData, setTickersData] = useState(null);
   const { tickers } = useSelector((state) => state.Tickers);
   const { interval } = useSelector((state) => state.Interval);
 
@@ -15,13 +15,19 @@ const TickersData = () => {
         tickers?.includes(ticker.ticker)
       );
 
-      return filteredTickers.map((ticker) => ({
-        ...ticker,
-        vector: !!(
-          currTickers.find((t) => t.ticker === ticker.ticker)?.price <
-          ticker.price
-        ),
-      }));
+      return filteredTickers.map((ticker) =>
+        currTickers
+          ? {
+              ...ticker,
+              vector: !!(
+                currTickers.find((t) => t.ticker === ticker.ticker)?.price <
+                ticker.price
+              ),
+            }
+          : {
+              ...ticker,
+            }
+      );
     });
   };
 

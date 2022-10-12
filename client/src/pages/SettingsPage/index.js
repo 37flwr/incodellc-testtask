@@ -11,18 +11,19 @@ const SettingsPage = () => {
   const dispatch = useDispatch();
   const { tickers } = useSelector((state) => state.Tickers);
   const { interval } = useSelector((state) => state.Interval);
-  console.log(interval);
 
   const [intervalValue, setIntervalValue] = useState(interval);
   return (
     <div className="settings-page">
-      <div className="tickers-selection">
+      <div className="tickers-selection settings-section">
+        <span className="section-heading">Tickers list</span>
         {defaultTickers.map((dt) => (
           <div
             className={classNames(
               tickers.includes(dt) && "active",
               "ticker-item"
             )}
+            key={dt}
           >
             <span
               className={classNames(
@@ -47,20 +48,21 @@ const SettingsPage = () => {
           </div>
         ))}
       </div>
-      <div className="interval-selection">
-        <form
-          onSubmit={() =>
-            dispatch(intervalActions.changeInterval(intervalValue))
-          }
-        >
-          <input
-            type="text"
-            value={intervalValue}
-            onChange={({ target }) => setIntervalValue(target.value)}
-          />
-          <button type="submit">Change</button>
-        </form>
-      </div>
+      <form
+        className="interval-selection settings-section"
+        onSubmit={() => dispatch(intervalActions.changeInterval(intervalValue))}
+      >
+        <label htmlFor="interval-selection" className="section-heading">
+          Current interval
+        </label>
+        <input
+          type="text"
+          id="interval-selection"
+          value={intervalValue}
+          onChange={({ target }) => setIntervalValue(target.value)}
+        />
+        <button type="submit">Change</button>
+      </form>
     </div>
   );
 };

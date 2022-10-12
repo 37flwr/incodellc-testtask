@@ -1,15 +1,23 @@
 .settings-page {
   width: 80vw;
   padding: 100px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  margin: auto;
+  display: grid;
+  column-gap: 10px;
+  grid-template-columns: repeat(4, 1fr);
+
+  .settings-section {
+    border: 1px solid black;
+    padding: 15px;
+  }
+
   .tickers-selection {
-    width: 50%;
     height: auto;
+    grid-column-start: 1;
+    grid-column-end: 4;
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 5px;
 
     .ticker-item {
@@ -29,4 +37,18 @@
       }
     }
   }
+
+  .interval-selection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    grid-column-start: 4;
+  }
+}
+
+.section-heading {
+  font-size: 18px;
+  font-weight: 700;
+  color: black;
 }

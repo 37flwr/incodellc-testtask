@@ -12,6 +12,12 @@ const TickersElement = ({ data }) => {
     yield: tickerYield,
   } = data;
 
+  const renderChangeColor = (vector) => {
+    if (typeof vector !== "undefined") {
+      return vector ? "green" : "red";
+    }
+  };
+
   return (
     <div key={ticker} className="table__grid">
       <span className="table__grid_element">{exchange}</span>
@@ -19,7 +25,7 @@ const TickersElement = ({ data }) => {
       <span className="table__grid_element">{price}</span>
       <span className="table__grid_element">{change}</span>
       <div
-        className={classNames("table__grid_element", vector ? "green" : "red")}
+        className={classNames("table__grid_element", renderChangeColor(vector))}
       >
         {parseInt(change_percent * 100) + "%"}
       </div>
