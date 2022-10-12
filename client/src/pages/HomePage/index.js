@@ -1,5 +1,5 @@
 import React from "react";
-import TickerTable from "../../components/tickers/TickerTable";
+import TickerTable from "../../components/TickersTable";
 import "./styles.scss";
 
 const HomePage = () => {
