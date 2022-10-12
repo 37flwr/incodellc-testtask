@@ -1,7 +1,7 @@
 import { useRoutes } from "react-router";
-import HomePage from "../pages/HomePage";
-import PageNotFound from "../pages/PageNotFound";
-import SettingsPage from "../pages/SettingsPage";
+import HomePage from "../pages/User/HomePage";
+import PageNotFound from "../pages/User/PageNotFound";
+import SettingsPage from "../pages/User/SettingsPage";
 
 const publicRoutes = [
   {

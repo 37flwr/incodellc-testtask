@@ -5,7 +5,7 @@ const initialState = {
   loading: false,
 };
 
-const contact = (state = initialState, action) => {
+const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actions.CHANGE_INTERVAL:
       return {
@@ -28,4 +28,4 @@ const contact = (state = initialState, action) => {
   }
 };
 
-export default contact;
+export default reducer;

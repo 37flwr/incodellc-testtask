@@ -2,8 +2,8 @@ import { createStore, applyMiddleware, compose, combineReducers } from "redux";
 import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import createSagaMiddleware from "redux-saga";
-import reducers from "./ducks/reducers";
-import rootSaga from "./ducks/sagas";
+import reducers from "./helpers/reducers";
+import rootSaga from "./helpers/sagas";
 
 const persistConfig = {
   key: "root",

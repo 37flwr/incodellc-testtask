@@ -7,7 +7,7 @@ import { BrowserRouter } from "react-router-dom";
 import { Suspense } from "react";
 import Loading from "./fallbacks/Loading";
 import { Provider } from "react-redux";
-import store, { persistor } from "./store/configureStore";
+import store, { persistor } from "./store";
 import { PersistGate } from "redux-persist/integration/react";
 import Layout from "./components/Layout";
 

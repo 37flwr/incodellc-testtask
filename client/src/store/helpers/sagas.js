@@ -1,8 +1,8 @@
 import { all, fork } from "redux-saga/effects";
 
 // Sagas
-import tickerSaga from "./tickers/saga";
-import intervalSaga from "./interval/saga";
+import { tickerSaga } from "../ducks/tickers";
+import { intervalSaga } from "../ducks/interval";
 
 export default function* rootSaga() {
   yield all([

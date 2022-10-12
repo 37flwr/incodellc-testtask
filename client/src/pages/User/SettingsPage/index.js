@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import classNames from "classnames";
-import { tickers as defaultTickers } from "../../utils/helper";
+import { tickers as defaultTickers } from "../../../utils/helper";
 import { useSelector, useDispatch } from "react-redux";
-import tickerActions from "../../store/ducks/tickers/actions";
-import intervalActions from "../../store/ducks/interval/actions";
-import ActionButton from "../../components/buttons/ActionButton";
+import { tickerActions } from "../../../store/ducks/tickers";
+import { intervalActions } from "../../../store/ducks/interval";
+import ActionButton from "../../../components/buttons/ActionButton";
 import "./styles.scss";
 
 const SettingsPage = () => {

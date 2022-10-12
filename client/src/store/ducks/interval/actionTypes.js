@@ -1,5 +1,5 @@
-const CHANGE_INTERVAL = "app/interval/CHANGE_INTREVAL";
-const CHANGE_INTERVAL_SUCCESS = "app/interval/CHANGE_INTREVAL_SUCCESS";
+const CHANGE_INTERVAL = "app/interval/CHANGE_INTERVAL";
+const CHANGE_INTERVAL_SUCCESS = "app/interval/CHANGE_INTERVAL_SUCCESS";
 const API_ERROR = "app/interval/API_ERROR";
 
 const types = {
