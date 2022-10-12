@@ -5,7 +5,7 @@ import types from "./actionTypes";
 
 function* changeIntervalSaga({ payload }) {
   try {
-    yield put(actions.changeInterval(payload));
+    yield put(actions.changeIntervalSuccess(payload));
   } catch {
     yield put(actions.apiError());
   }
