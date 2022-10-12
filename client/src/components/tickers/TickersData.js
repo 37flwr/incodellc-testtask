@@ -1,22 +1,27 @@
 import React, { useEffect, useState } from "react";
-import classNames from "classnames";
+import { useSelector } from "react-redux";
 import socket from "../../utils/socket";
 import { endPolling, startPolling } from "../../utils/socketActions";
+import TickersElement from "./TickersElement";
 
 const TickersData = () => {
-  const [tickers, setTickers] = useState([]);
+  const [tickersData, setTickersData] = useState([]);
+  const { tickers } = useSelector((state) => state.Tickers);
 
   const updateTickers = (data) => {
-    setTickers((currTickers) =>
-      data.map((ticker) => ({
+    setTickersData((currTickers) => {
+      const filteredTickers = data.filter((ticker) =>
+        tickers?.includes(ticker.ticker)
+      );
+
+      return filteredTickers.map((ticker) => ({
         ...ticker,
-        vector:
+        vector: !!(
           currTickers.find((t) => t.ticker === ticker.ticker)?.price <
           ticker.price
-            ? true
-            : false,
-      }))
-    );
+        ),
+      }));
+    });
   };
 
   useEffect(() => {
@@ -27,35 +32,16 @@ const TickersData = () => {
     });
 
     return () => {
-      if (socket.readyState === 1) {
+      if (socket.connected) {
         endPolling();
       }
     };
+    //eslint-disable-next-line
   }, []);
 
-  return tickers?.map(
-    ({
-      exchange,
-      ticker,
-      price,
-      vector,
-      change,
-      change_percent,
-      dividend,
-      yield: tickerYield,
-    }) => (
-      <div key={ticker} className="table__grid">
-        <p>{exchange}</p>
-        <p>{ticker}</p>
-        <p>{price}</p>
-        <div className={classNames(vector ? "green" : "red")}></div>
-        <p>{change}</p>
-        <div>{change_percent}</div>
-        <p>{dividend}</p>
-        <p>{tickerYield}</p>
-      </div>
-    )
-  );
+  return tickersData?.map((ticker) => (
+    <TickersElement key={ticker.ticker} data={ticker} />
+  ));
 };
 
 export default TickersData;

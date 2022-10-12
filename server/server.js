@@ -3,6 +3,7 @@ const express = require("express");
 const http = require("http");
 const io = require("socket.io");
 const cors = require("cors");
+const { clearInterval } = require("timers");
 
 const FETCH_INTERVAL = 5000;
 const PORT = process.env.PORT || 4000;
@@ -56,6 +57,10 @@ function trackTickers(socket) {
   const timer = setInterval(function () {
     getQuotes(socket);
   }, FETCH_INTERVAL);
+
+  socket.on("terminate", function () {
+    clearInterval(timer);
+  });
 
   socket.on("disconnect", function () {
     clearInterval(timer);

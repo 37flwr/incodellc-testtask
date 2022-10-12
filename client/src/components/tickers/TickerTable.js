@@ -1,6 +1,7 @@
 import React from "react";
 import TickersData from "./TickersData";
 import TickerTableHeader from "./TickerTableHeader";
+import "./styles.scss";
 
 const TickerTable = () => {
   return (

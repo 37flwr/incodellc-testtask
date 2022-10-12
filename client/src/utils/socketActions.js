@@ -5,7 +5,7 @@ const startPolling = () => {
 };
 
 const endPolling = () => {
-  socket.disconnect();
+  socket.emit("terminate");
 };
 
 export { startPolling, endPolling };
