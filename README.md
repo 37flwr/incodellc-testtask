@@ -4,7 +4,7 @@
 
 - [x] Add any additional visual effects to highlight positive or negative changes in the prices
 - [x] Add the possibility to switch on/off tickers by user
-- [ ] Add the possibility to specify interval time by user
+- [x] Add the possibility to specify interval time by user
 - [ ] Add any additional functionality you consider useful
 
 ## Running the local service
