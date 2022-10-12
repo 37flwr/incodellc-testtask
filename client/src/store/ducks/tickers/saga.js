@@ -21,8 +21,6 @@ function* removeTickerSaga({ payload }) {
     const modifiedTickers = tickers.tickers.filter(
       (ticker) => ticker !== payload
     );
-    console.log(tickers.tickers);
-    console.log(modifiedTickers);
     yield put(actions.addTickerSuccess(modifiedTickers));
   } catch {
     yield put(actions.apiError());

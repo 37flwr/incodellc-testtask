@@ -1,7 +1,7 @@
 import socket from "./socket";
 
-const startPolling = () => {
-  socket.emit("start");
+const startPolling = (interval) => {
+  socket.emit("start", interval);
 };
 
 const endPolling = () => {

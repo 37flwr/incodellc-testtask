@@ -49,14 +49,14 @@ function getQuotes(socket) {
   socket.emit("ticker", quotes);
 }
 
-function trackTickers(socket) {
+function trackTickers(socket, interval) {
   // run the first time immediately
   getQuotes(socket);
 
   // every N seconds
   const timer = setInterval(function () {
     getQuotes(socket);
-  }, FETCH_INTERVAL);
+  }, interval);
 
   socket.on("terminate", function () {
     clearInterval(timer);
@@ -82,8 +82,8 @@ app.get("/", function (req, res) {
 });
 
 socketServer.on("connection", (socket) => {
-  socket.on("start", () => {
-    trackTickers(socket);
+  socket.on("start", (interval) => {
+    trackTickers(socket, interval);
   });
 });
 

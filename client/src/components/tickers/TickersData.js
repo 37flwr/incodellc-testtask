@@ -7,6 +7,7 @@ import TickersElement from "./TickersElement";
 const TickersData = () => {
   const [tickersData, setTickersData] = useState([]);
   const { tickers } = useSelector((state) => state.Tickers);
+  const { interval } = useSelector((state) => state.Interval);
 
   const updateTickers = (data) => {
     setTickersData((currTickers) => {
@@ -25,7 +26,7 @@ const TickersData = () => {
   };
 
   useEffect(() => {
-    startPolling();
+    startPolling(interval);
 
     socket.on("ticker", (data) => {
       updateTickers(data);
