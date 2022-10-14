@@ -4,6 +4,7 @@ import { Provider } from "react-redux";
 import store from "../../store";
 import TickersElement from "./components/TickersElement";
 import TickerTableHeader from "./components/TickerTableHeader";
+import { tickerDetails } from "../../utils/values";
 
 afterEach(() => cleanup());
 
@@ -22,7 +23,9 @@ describe("TickerTable", () => {
   describe("TickerTableHeader", () => {
     test("Renders all elements", () => {
       render(<TickerTableHeader />);
-      expect(screen.getAllByTestId("ticker-table-header-elem").length).toBe(7);
+      expect(screen.getAllByTestId("ticker-table-header-elem").length).toBe(
+        tickerDetails.length
+      );
     });
   });
 
