@@ -6,9 +6,15 @@
   column-gap: 10px;
   grid-template-columns: repeat(4, 1fr);
 
-  .settings-section {
+  &_section {
     border: 1px solid black;
     padding: 15px;
+
+    .section__heading {
+      font-size: 18px;
+      font-weight: 700;
+      color: black;
+    }
   }
 
   .tickers-selection {
@@ -45,10 +51,4 @@
     gap: 10px;
     grid-column-start: 4;
   }
-}
-
-.section-heading {
-  font-size: 18px;
-  font-weight: 700;
-  color: black;
 }

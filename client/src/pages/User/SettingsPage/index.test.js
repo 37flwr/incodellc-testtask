@@ -1,11 +1,11 @@
-import { render, screen, cleanup, fireEvent } from "@testing-library/react";
+import { render, screen, cleanup } from "@testing-library/react";
 import { Provider } from "react-redux";
 import configureMockStore from "redux-mock-store";
 import rootSaga from "../../../store/helpers/sagas";
 import { Router } from "react-router-dom";
 import { createMemoryHistory } from "history";
 import SettingsPage from ".";
-import { tickers as defaultTickers } from "../../../utils/helper";
+import { tickers as defaultTickers } from "../../../utils/values";
 import store from "../../../store";
 import { tickerActions } from "../../../store/ducks/tickers";
 import createSagaMiddleware from "redux-saga";
@@ -73,7 +73,7 @@ describe("Settings page", () => {
       mockStore.dispatch(tickerActions.removeTicker(defaultTickers[0]));
       mockStore.dispatch(tickerActions.addTicker(defaultTickers[0]));
 
-      const testAction = { type: "app/tickers/ADD", payload: "AAPL" };
+      const testAction = { type: "app/tickers/ADD_TICKER", payload: "AAPL" };
       expect(mockStore.getActions()).toContainEqual(testAction);
     });
 
@@ -97,7 +97,7 @@ describe("Settings page", () => {
 
       mockStore.dispatch(tickerActions.removeTicker(defaultTickers[0]));
 
-      const testAction = { type: "app/tickers/REMOVE", payload: "AAPL" };
+      const testAction = { type: "app/tickers/REMOVE_TICKER", payload: "AAPL" };
       expect(mockStore.getActions()).toContainEqual(testAction);
     });
   });

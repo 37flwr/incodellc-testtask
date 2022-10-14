@@ -1,24 +1,16 @@
 import React from "react";
+import { tickerDetails } from "../../../utils/values";
 
 const TickerTableHeader = () => {
-  const tickerDetails = [
-    "Exhange",
-    "Ticker",
-    "Price",
-    "Change",
-    "Change Percent",
-    "Dividend",
-    "Yield",
-  ];
   return (
     <div
-      className="ticker-table_header table__grid"
+      className="ticker-table__header table_grid"
       data-testid="ticker-table-header"
     >
       {tickerDetails.map((t) => (
         <span
           key={t}
-          className="table__grid_element"
+          className="table_grid__element"
           data-testid="ticker-table-header-elem"
         >
           {t}

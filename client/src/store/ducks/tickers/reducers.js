@@ -1,4 +1,4 @@
-import { tickers } from "../../../utils/helper";
+import { tickers } from "../../../utils/values";
 import actions from "./actionTypes";
 
 const initialState = {

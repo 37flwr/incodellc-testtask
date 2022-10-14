@@ -4,27 +4,27 @@
   flex-direction: column;
   gap: 10px;
 
-  .ticker-table_header {
+  .ticker-table__header {
     border-bottom: 2px solid black;
   }
-  .table__grid {
+  .table_grid {
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     row-gap: 10px;
 
-    &_element {
+    &__element {
       justify-self: center;
       text-align: center;
     }
 
-    .green {
+    .change_positive {
       width: 100px;
       height: 20px;
       background-color: green;
     }
 
-    .red {
+    .change_negative {
       width: 100px;
       height: 20px;
       background-color: red;

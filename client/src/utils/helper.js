@@ -1,12 +1,3 @@
-export const tickers = [
-  "AAPL", // Apple
-  "GOOGL", // Alphabet
-  "MSFT", // Microsoft
-  "AMZN", // Amazon
-  "FB", // Facebook
-  "TSLA", // Tesla
-];
-
 export const validateAndFormatInterval = (interval, currentInterval) => {
   if (interval <= 0 || interval > 30) {
     return {

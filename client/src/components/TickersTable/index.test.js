@@ -2,8 +2,8 @@ import { render, screen, cleanup } from "@testing-library/react";
 import TickersTable from "./index";
 import { Provider } from "react-redux";
 import store from "../../store";
-import TickersElement from "./TickersElement";
-import TickerTableHeader from "./TickerTableHeader";
+import TickersElement from "./components/TickersElement";
+import TickerTableHeader from "./components/TickerTableHeader";
 
 afterEach(() => cleanup());
 
@@ -73,7 +73,7 @@ describe("TickerTable", () => {
         };
         render(<TickersElement data={tickerData} />);
 
-        expect(screen.getByTestId("ticker-element")).toHaveClass("table__grid");
+        expect(screen.getByTestId("ticker-element")).toHaveClass("table_grid");
       });
 
       test("Displays green color if positive vector", () => {
@@ -90,7 +90,9 @@ describe("TickerTable", () => {
         };
         render(<TickersElement data={tickerData} />);
 
-        expect(screen.getByTestId("change-percent")).toHaveClass("green");
+        expect(screen.getByTestId("change-percent")).toHaveClass(
+          "change_positive"
+        );
       });
 
       test("Displays red color if negative vector", () => {
@@ -107,7 +109,9 @@ describe("TickerTable", () => {
         };
         render(<TickersElement data={tickerData} />);
 
-        expect(screen.getByTestId("change-percent")).toHaveClass("red");
+        expect(screen.getByTestId("change-percent")).toHaveClass(
+          "change_negative"
+        );
       });
     });
   });

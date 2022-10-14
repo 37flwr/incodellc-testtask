@@ -1,6 +1,6 @@
 import React from "react";
-import TickersData from "./TickersData";
-import TickerTableHeader from "./TickerTableHeader";
+import TickersData from "./components/TickersData";
+import TickerTableHeader from "./components/TickerTableHeader";
 import "./styles.scss";
 
 const TickerTable = () => {

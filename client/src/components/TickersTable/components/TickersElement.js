@@ -14,34 +14,34 @@ const TickersElement = ({ data }) => {
 
   const renderChangeColor = (vector) => {
     if (typeof vector !== "undefined") {
-      return vector ? "green" : "red";
+      return vector ? "change_positive" : "change_negative";
     }
   };
 
   return (
-    <div key={ticker} className="table__grid" data-testid="ticker-element">
-      <span className="table__grid_element" data-testid="exchange">
+    <div key={ticker} className="table_grid" data-testid="ticker-element">
+      <span className="table_grid__element" data-testid="exchange">
         {exchange}
       </span>
-      <span className="table__grid_element" data-testid="ticker">
+      <span className="table_grid__element" data-testid="ticker">
         {ticker}
       </span>
-      <span className="table__grid_element" data-testid="price">
+      <span className="table_grid__element" data-testid="price">
         {price}
       </span>
-      <span className="table__grid_element" data-testid="change">
+      <span className="table_grid__element" data-testid="change">
         {change}
       </span>
       <div
-        className={classNames("table__grid_element", renderChangeColor(vector))}
+        className={classNames("table_grid__element", renderChangeColor(vector))}
         data-testid="change-percent"
       >
         {parseInt(change_percent * 100) + "%"}
       </div>
-      <span className="table__grid_element" data-testid="dividend">
+      <span className="table_grid__element" data-testid="dividend">
         {dividend}
       </span>
-      <span className="table__grid_element" data-testid="yield">
+      <span className="table_grid__element" data-testid="yield">
         {tickerYield}
       </span>
     </div>

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import socket from "../../utils/socket";
-import { endPolling, startPolling } from "../../utils/socketActions";
+import socket from "../../../utils/socket";
+import { endPolling, startPolling } from "../../../utils/socketActions";
 import TickersElement from "./TickersElement";
 
 const TickersData = () => {

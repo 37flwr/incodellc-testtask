@@ -5,7 +5,7 @@ const ActionButton = ({ onClick, type, children }) => {
     <button
       className="action-button"
       type={type ? type : "button"}
-      onClick={onClick && onClick}
+      onClick={onClick ? onClick : null}
     >
       {children}
     </button>
