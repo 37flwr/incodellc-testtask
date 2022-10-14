@@ -8,6 +8,7 @@ export const tickers = [
 ];
 
 export const tickerDetails = [
+  "Last Trade Time",
   "Exhange",
   "Ticker",
   "Price",

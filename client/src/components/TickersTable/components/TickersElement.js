@@ -2,6 +2,7 @@ import classNames from "classnames";
 
 const TickersElement = ({ data }) => {
   const {
+    last_trade_time,
     exchange,
     ticker,
     price,
@@ -20,6 +21,9 @@ const TickersElement = ({ data }) => {
 
   return (
     <div key={ticker} className="table_grid" data-testid="ticker-element">
+      <span className="table_grid__element" data-testid="last_trade_time">
+        {new Date(last_trade_time).toLocaleString()}
+      </span>
       <span className="table_grid__element" data-testid="exchange">
         {exchange}
       </span>

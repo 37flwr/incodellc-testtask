@@ -50,6 +50,7 @@ describe("TickerTable", () => {
         };
         render(<TickersElement data={tickerData} />);
 
+        expect(screen.getByTestId("last_trade_time")).toBeInTheDocument();
         expect(screen.getByTestId("exchange")).toBeInTheDocument();
         expect(screen.getByTestId("ticker")).toBeInTheDocument();
         expect(screen.getByTestId("price")).toBeInTheDocument();
