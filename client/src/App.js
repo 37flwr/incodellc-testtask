@@ -1,5 +1,3 @@
-// import logo from './logo.svg';
-import "./App.scss";
 import AppRoutes from "./routes/publicRoutes";
 import ErrorFallback from "./fallbacks/ErrorFallback";
 import { ErrorBoundary } from "react-error-boundary";
@@ -10,6 +8,8 @@ import { Provider } from "react-redux";
 import store, { persistor } from "./store";
 import { PersistGate } from "redux-persist/integration/react";
 import Layout from "./components/Layout";
+import ContextProviders from "./context";
+import "./App.scss";
 
 function App() {
   return (
@@ -18,9 +18,11 @@ function App() {
         <PersistGate loading={null} persistor={persistor}>
           <BrowserRouter>
             <Suspense fallback={<Loading />}>
-              <Layout>
-                <AppRoutes />
-              </Layout>
+              <ContextProviders>
+                <Layout>
+                  <AppRoutes />
+                </Layout>
+              </ContextProviders>
             </Suspense>
           </BrowserRouter>
         </PersistGate>

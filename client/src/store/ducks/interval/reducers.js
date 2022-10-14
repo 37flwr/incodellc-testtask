@@ -1,7 +1,7 @@
 import actions from "./actionTypes";
 
 const initialState = {
-  interval: 5000,
+  interval: 5,
   loading: false,
 };
 

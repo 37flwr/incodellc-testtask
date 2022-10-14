@@ -5,7 +5,7 @@ import "./styles.scss";
 
 const TickerTable = () => {
   return (
-    <div className="ticker-table">
+    <div className="ticker-table" data-testid="ticker-table">
       <TickerTableHeader />
       <TickersData />
     </div>

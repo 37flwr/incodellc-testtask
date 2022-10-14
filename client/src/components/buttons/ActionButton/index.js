@@ -1,12 +1,15 @@
-import React from "react";
 import "./styles.scss";
 
-const index = ({ onClick, children }) => {
+const ActionButton = ({ onClick, type, children }) => {
   return (
-    <button className="action-button" onClick={onClick}>
+    <button
+      className="action-button"
+      type={type ? type : "button"}
+      onClick={onClick && onClick}
+    >
       {children}
     </button>
   );
 };
 
-export default index;
+export default ActionButton;

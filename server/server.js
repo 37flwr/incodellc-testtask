@@ -5,7 +5,6 @@ const io = require("socket.io");
 const cors = require("cors");
 const { clearInterval } = require("timers");
 
-const FETCH_INTERVAL = 5000;
 const PORT = process.env.PORT || 4000;
 
 const tickers = [
@@ -50,13 +49,14 @@ function getQuotes(socket) {
 }
 
 function trackTickers(socket, interval) {
+  const convertedInterval = interval * 1000;
   // run the first time immediately
   getQuotes(socket);
 
   // every N seconds
   const timer = setInterval(function () {
     getQuotes(socket);
-  }, interval);
+  }, convertedInterval);
 
   socket.on("terminate", function () {
     clearInterval(timer);

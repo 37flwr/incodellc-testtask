@@ -19,18 +19,31 @@ const TickersElement = ({ data }) => {
   };
 
   return (
-    <div key={ticker} className="table__grid">
-      <span className="table__grid_element">{exchange}</span>
-      <span className="table__grid_element">{ticker}</span>
-      <span className="table__grid_element">{price}</span>
-      <span className="table__grid_element">{change}</span>
+    <div key={ticker} className="table__grid" data-testid="ticker-element">
+      <span className="table__grid_element" data-testid="exchange">
+        {exchange}
+      </span>
+      <span className="table__grid_element" data-testid="ticker">
+        {ticker}
+      </span>
+      <span className="table__grid_element" data-testid="price">
+        {price}
+      </span>
+      <span className="table__grid_element" data-testid="change">
+        {change}
+      </span>
       <div
         className={classNames("table__grid_element", renderChangeColor(vector))}
+        data-testid="change-percent"
       >
         {parseInt(change_percent * 100) + "%"}
       </div>
-      <span className="table__grid_element">{dividend}</span>
-      <span className="table__grid_element">{tickerYield}</span>
+      <span className="table__grid_element" data-testid="dividend">
+        {dividend}
+      </span>
+      <span className="table__grid_element" data-testid="yield">
+        {tickerYield}
+      </span>
     </div>
   );
 };

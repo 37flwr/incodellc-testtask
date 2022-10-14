@@ -9,7 +9,7 @@ export default function* rootSaga() {
     //ticker
     fork(tickerSaga),
 
-    //ticker
+    //interval
     fork(intervalSaga),
   ]);
 }
